@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.EditQuestionViews"
+             xmlns:local="clr-namespace:TriviaXamarinApp.Effects">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#33FFAF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Edit question" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Entry Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Question"
+                        Text="{Binding QText}">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50"
+                        Placeholder="Correct answer"
+                       Text="{Binding CorrectAnswer}">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50"
+                        Placeholder="Other answer 1"
+                       Text="{Binding OtherAnswers[0]}">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50"
+                        Placeholder="Other answer 2"
+                       Text="{Binding OtherAnswers[1]}">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50"
+                        Placeholder="Other answer 3"
+                       Text="{Binding OtherAnswers[2]}">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Label Text="{Binding Error}" TextColor="Red" HorizontalOptions="CenterAndExpand"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Edit question"  
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                        Command="{Binding EditCommand}"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

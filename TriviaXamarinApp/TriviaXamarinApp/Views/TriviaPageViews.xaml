@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TriviaXamarinApp.Views.TriviaPageViews"
+             xmlns:local="clr-namespace:TriviaXamarinApp.Effects">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#33FFAF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label Text= "{Binding QText}"
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Label HeightRequest="35" TextColor="Black" 
+                          FontSize="20" 
+                          HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text=" Submitted by: " />
+                            <Span Text="{Binding NickName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button Margin="20,0,20,0"                         
+                         TextColor="White" 
+                         Text="{Binding Answers[0]}"
+                         Font="20"
+                         Command="{Binding AnswerCommand}"
+                         CommandParameter="{Binding Answers[0]}"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Button Margin="20,0,20,0" 
+                         TextColor="White" 
+                         Text="{Binding Answers[1]}"
+                         Font="20"
+                         Command="{Binding AnswerCommand}"
+                         CommandParameter="{Binding Answers[1]}"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Button Margin="20,0,20,0" 
+                         TextColor="White" 
+                         Text="{Binding Answers[2]}"
+                         Font="20"
+                         Command="{Binding AnswerCommand}"
+                         CommandParameter="{Binding Answers[2]}"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Button Margin="20,0,20,0" 
+                         TextColor="White" 
+                         Text="{Binding Answers[3]}"
+                         Font="20"
+                         Command="{Binding AnswerCommand}"
+                         CommandParameter="{Binding Answers[3]}"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Label HeightRequest="35" TextColor="Black" 
+                          FontSize="20" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text=" Your score: " />
+                            <Span Text="{Binding Counter}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button Margin="20,10,20,0" 
+                         TextColor="White" 
+                         Text="Play"
+                         Command="{Binding PlayCommand}"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="End"/>
+
+                <Button Margin="20,10,20,0" 
+                         TextColor="White" 
+                         Text="Profile"
+                         Command="{Binding ProfileCommand}"
+                         BackgroundColor="{StaticResource primary}"
+                        IsEnabled ="{Binding IsEnabled}"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="End"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

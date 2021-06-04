@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TriviaXamarinApp.Views.MainPage"
+             xmlns:local="clr-namespace:TriviaXamarinApp.Effects"
+             xmlns:markUpExtensions ="clr-namespace:TriviaXamarinApp.MarkUpExtensions">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#33FFAF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Itay's Trivia" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Image Source="logo_transparent.png" WidthRequest="250" HeightRequest="250"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="LogIn"  
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                        Command="{Binding LogInCommand}"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Register"  
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                        Command="{Binding RegisterCommand}"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Play us a guest"  
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                        Command="{Binding GuestCommand}"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

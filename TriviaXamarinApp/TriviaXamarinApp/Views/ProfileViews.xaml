@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TriviaXamarinApp.Views.ProfileViews"
+             x:Name="Page"
+             xmlns:local="clr-namespace:TriviaXamarinApp.Effects">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#33FFAF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Profile" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Log Out"  
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"
+                        Command="{Binding LogOutCommand}"/>
+
+                <Label HeightRequest="45" TextColor="Black" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text=" Nickname: " />
+                            <Span Text="{Binding NickName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label HeightRequest="45" TextColor="Black" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Start">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Email: " />
+                        <Span Text="{Binding Email}" />
+                    </FormattedString>
+                </Label.FormattedText>
+                </Label>
+
+                <Label HeightRequest="45" TextColor="Black" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Start">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Password: " />
+                        <Span Text="{Binding Pass}" />
+                    </FormattedString>
+                </Label.FormattedText>
+                </Label>
+
+                <CollectionView ItemsSource="{Binding Questions}" x:Name="QuestionsView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItem IconImageSource="trash_white.png" BackgroundColor="Red" Command="{Binding Source={x:Reference QuestionsView}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"/>
+                                    <SwipeItem IconImageSource="edit.png" BackgroundColor="Gray" Command="{Binding Source={x:Reference QuestionsView}, Path=BindingContext.EditCommand}" CommandParameter="{Binding}"/>
+                                </SwipeView.LeftItems>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label FontSize="18" Grid.Column="0" Grid.Row="0" TextColor="{DynamicResource primaryText}"
+                                Text="{Binding QText}" />
+                                    <Label FontSize="18" Grid.Column="0" Grid.Row="1" TextColor="{DynamicResource secondaryText}"
+                                Text="{Binding CorrectAnswer}" />
+                                </Grid>
+                            </SwipeView>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
